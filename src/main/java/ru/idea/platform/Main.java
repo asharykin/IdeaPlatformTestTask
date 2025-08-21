@@ -24,12 +24,12 @@ public class Main {
         System.out.println("Минимальное время полета между Владивостоком и Тель-Авивом для каждого авиаперевозчика: ");
         Map<String, Long> minFlightDurations = ticketService.getMinFlightDurationByCarrier(filteredTickets);
         for (Map.Entry<String, Long> entry : minFlightDurations.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue() + "мин");
+            System.out.println(entry.getKey() + ": " + entry.getValue() + " мин");
         }
 
         System.out.println();
         double avgPrice = ticketService.getAvgPrice(filteredTickets);
         double medianPrice = ticketService.getMedianPrice(filteredTickets);
-        System.out.println("Разницу между средней и медианной ценой для полета между Владивостоком и Тель-Авивом: " + Math.abs(avgPrice - medianPrice));
+        System.out.println("Разница между средней и медианной ценой для полета между Владивостоком и Тель-Авивом: " + Math.abs(avgPrice - medianPrice));
     }
 }
