@@ -13,6 +13,6 @@ public class TicketParser {
     public List<Ticket> parseJson(String fileName) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         String ticketsJsonList = mapper.readTree(new File(fileName)).get("tickets").toString();
-        return mapper.readValue(ticketsJsonList, new TypeReference<>() {});
+        return mapper.readValue(ticketsJsonList, new TypeReference<List<Ticket>>() {});
     }
 }
