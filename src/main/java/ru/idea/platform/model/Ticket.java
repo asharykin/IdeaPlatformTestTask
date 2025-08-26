@@ -29,8 +29,8 @@ public class Ticket {
 
     public long getFlightDuration() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy [H][HH]:mm");
-        LocalDateTime departureTime = LocalDateTime.parse(this.departureDate + " " + this.departureTime, formatter);
-        LocalDateTime arrivalTime = LocalDateTime.parse(this.arrivalDate + " " + this.arrivalTime, formatter);
-        return Duration.between(departureTime, arrivalTime).toMinutes();
+        LocalDateTime departure = LocalDateTime.parse(this.departureDate + " " + this.departureTime, formatter);
+        LocalDateTime arrival = LocalDateTime.parse(this.arrivalDate + " " + this.arrivalTime, formatter);
+        return Duration.between(departure, arrival).toMinutes();
     }
 }
