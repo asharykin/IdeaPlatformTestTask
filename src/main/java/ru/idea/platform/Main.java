@@ -1,6 +1,7 @@
 package ru.idea.platform;
 
 import ru.idea.platform.model.Ticket;
+import ru.idea.platform.model.TicketComposite;
 import ru.idea.platform.service.TicketParser;
 import ru.idea.platform.service.TicketService;
 
@@ -13,7 +14,14 @@ public class Main {
     public static void main(String[] args) throws IOException {
         TicketParser parser = new TicketParser();
 
-        List<Ticket> tickets = parser.parseJson(args[0]);
+        TicketComposite ticketComposite = parser.parseJson(args[0]);
+        List<Ticket> tickets = ticketComposite.getTickets();
+
+        if (tickets == null || tickets.isEmpty()) {
+            System.out.println("Список билетов в файле отсутсвует или пуст");
+            return;
+        }
+
         List<Ticket> filteredTickets = tickets.stream()
                 .filter(ticket -> ticket.getOriginName().equals("Владивосток"))
                 .filter(ticket -> ticket.getDestinationName().equals("Тель-Авив"))
