@@ -1,6 +1,6 @@
 # Для запуска в консоли
 ```bash
-java -jar ./test-task-1.0.jar ./tickets.json (или ваш путь к файлу)
+java -jar ./test-task.jar ./tickets.json
 ```
 
 # Ответы на вопросы
